@@ -3,11 +3,10 @@ const router = express.Router();
 const utils = require('./route_utils');
 const getWeatherData = utils.getWeatherData;
 
-// @route GET api/v1/weather
-// @desc Get Weather Data for
-router.get('/', async (req, res) => {
-  // n = number of random points
-  const n = 2;
+// @route GET api/v1/weatherdata/:pts
+// @desc Get Weather Data for n random coordinates
+router.get('/:pts', async (req, res) => {
+  const n = parseInt(req.params.pts) || 5;
   try {
     const weatherData = await getWeatherData(n);
     res.json(weatherData);

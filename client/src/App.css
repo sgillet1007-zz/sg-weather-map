@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: white;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.App header {
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  margin-bottom: 20px;
+  background-color: rgba(0, 40, 104, 0.9);
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+header img {
+  margin-right: 1rem;
+}
+
+.leaflet-container {
+  height: 530px;
+  width: 90vw;
+  max-width: 1000px;
+  border: 2px solid rgba(0, 40, 104, 0.9);
+  border-radius: 5px;
+  margin: auto;
+}
+
+.control-panel {
+  height: 80px;
+  width: 90vw;
+  max-width: 1000px;
+  margin: auto;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+  background-color: rgba(0, 40, 104, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(0, 40, 104, 1);
+}
+
+.control-panel.form {
+  justify-content: center;
+}
+
+.control-panel.form > span {
+  margin: 1rem;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

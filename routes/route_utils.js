@@ -62,7 +62,7 @@ const getWeatherData = async n => {
   // initialize array of individual axios requests
   const dataRequests = coordArr.map(c =>
     axios.get(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${c.lat}&lon=${c.lon}&appid=${apiKey}`
+      `http://api.openweathermap.org/data/2.5/weather?lat=${c.lat}&lon=${c.lon}&units=imperial&appid=${apiKey}`
     )
   );
   // initialize return array
