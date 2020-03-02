@@ -1,42 +1,35 @@
-# Design Assumptions:
+# Colorado Weather Map
 
-1. App will display weather data for state of Colorado
-2. state boundaries are assumed to be defined by the following four values representing maximum and minimum latitude and longitude values. Note - values aquired from: https://en.wikipedia.org/wiki/Colorado
-   - minLat = 37
-   - maxLat = 41
-   - minLong = -109.046667
-   - maxLong = -102.046667
-3. OpenWeather API free tier will be used to fetch weather data (limited to 60 API calls per minute.) https://openweathermap.org/current
-   - Current weather data for one location: by geographic coordinates
-   - API call format: api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={your api key}
-   - API key is stored as an environment variable '\$openWeatherApiKey'
-4. Random numbers calculated using random.org integer generator to produce random integer values that can easily be transformed to latitude and longitude decimal by multiplying by 10e-6
+> Node/Express + React Application that displays weather data for a user-specified number of random coordinates within the state of Colorado.
 
-## Available Scripts
+Weather Data source is: [openweathermap.org](https://openweathermap.org/current)
 
-In the project directory, you can run:
+Random number source is: [random.org](https://www.random.org/clients/http/)
 
-### `npm start`
+## Instructions for running locally
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Install dependencies
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```bash
+npm install
+cd client
+npm install
+```
 
-### `npm test`
+### OpenWeather API Key
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Add your OpenWeather API key to /config/default.json
 
-### `npm run build`
+```javascript
+{
+  "openWeatherApiKey": "[YOUR_API_KEY]"
+}
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Run Server
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
+```bash
+npm run dev     # starts both the server (on port 5000) and client (on port 3000)
+npm run server  # starts server only
+npm run client  # starts client only
+```
