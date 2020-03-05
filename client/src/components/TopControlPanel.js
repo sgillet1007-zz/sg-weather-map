@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import WeatherMapContext from '../context/weatherMap/weatherMapContext';
 import { Button, Select, MenuItem } from '@material-ui/core';
 
 const TopControlPanel = props => {
-  const {
-    randomPtCount,
-    loading,
-    handleGetData,
-    handlePointCountChange
-  } = props;
+  const weatherMapContext = useContext(WeatherMapContext);
+
+  const handlePtCountChange = e =>
+    weatherMapContext.updatePointCount(e.target.value);
 
   return (
     <div className='control-panel form'>
@@ -19,8 +18,8 @@ const TopControlPanel = props => {
         <Select
           labelId='demo-simple-select-label'
           id='demo-simple-select'
-          value={randomPtCount}
-          onChange={handlePointCountChange}
+          value={weatherMapContext.ptCount}
+          onChange={handlePtCountChange}
         >
           <MenuItem value={1}>1</MenuItem>
           <MenuItem value={5}>5</MenuItem>
@@ -29,16 +28,17 @@ const TopControlPanel = props => {
           <MenuItem value={20}>20</MenuItem>
           <MenuItem value={25}>25</MenuItem>
           <MenuItem value={30}>30</MenuItem>
+          <MenuItem value={40}>40</MenuItem>
         </Select>
       </span>
       <span>
         <Button
-          onClick={handleGetData}
+          onClick={weatherMapContext.getData}
           variant='outlined'
           color='primary'
-          disabled={loading}
+          disabled={weatherMapContext.loading}
         >
-          {loading ? 'Loading...' : 'Load Data'}
+          {weatherMapContext.loading ? 'Loading...' : 'Load Data'}
         </Button>
       </span>
     </div>
