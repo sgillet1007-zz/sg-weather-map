@@ -3,7 +3,7 @@ const config = require('config');
 const apiKey = config.get('openWeatherApiKey');
 
 const getRandomNumbersArray = async (n, type) => {
-  // value range constants: {value}10e6
+  // value range constants: value*10e6
   const min_lat = 37000000;
   const max_lat = 41000000;
   const min_lng = -109046667;
@@ -74,7 +74,6 @@ const getWeatherData = async n => {
       .then(responseArr => {
         weatherData = [...responseArr].map(i => i.data);
       })
-      .catch(err => console.error(err.message));
   } catch (error) {
     console.error(error.message);
   } finally {
