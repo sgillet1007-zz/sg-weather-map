@@ -32,8 +32,8 @@ const getRandomNumbersArray = async (n, type) => {
 };
 
 const getRandomCoordinates = async n => {
-  // negative values of n should default to 1 (potential test case)
-  const num = n > 0 ? n : 1;
+  // if negative values of n is passed, fallback to default value of 20 (also UI default value)
+  const num = n > 0 ? n : 20;
   // initialize arrays for random lat and long values
   let lngValuesArr = [];
   let latValuesArr = [];
@@ -69,11 +69,9 @@ const getWeatherData = async n => {
   let weatherData = [];
 
   try {
-    await axios
-      .all([...dataRequests])
-      .then(responseArr => {
-        weatherData = [...responseArr].map(i => i.data);
-      })
+    await axios.all([...dataRequests]).then(responseArr => {
+      weatherData = [...responseArr].map(i => i.data);
+    });
   } catch (error) {
     console.error(error.message);
   } finally {

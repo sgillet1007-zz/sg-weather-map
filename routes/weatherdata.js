@@ -6,7 +6,7 @@ const getWeatherData = utils.getWeatherData;
 // @route GET api/v1/weatherdata/:pts
 // @desc Get Weather Data for n random coordinates
 router.get('/:pts', async (req, res) => {
-  const n = parseInt(req.params.pts) || 5;
+  const n = parseInt(req.params.pts);
   try {
     const weatherData = await getWeatherData(n);
     res.json(weatherData);
